@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>RSS 订阅</title>
+    <!-- <link rel="stylesheet" href="./feeds_list.css"> -->
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .rss-feed {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .rss-feed h3 {
+            margin-top: 0;
+        }
+
+        .rss-feed a {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Feeds List<h1>
+            <div class="rss-feed">
+                {% for feed in feeds %}
+                <!-- <h3>{{ feed.title }}</h3> -->
+                <a href="{{ feed.link }}">{{ feed.title }}</a>
+                {% endfor %}
+            </div>
+</body>
+
+</html>
