@@ -47,5 +47,3 @@ typing-extensions==4.10.0
     # via sqlalchemy
 uvicorn==0.27.1
     # via rss-manager
-zhdate==0.1
-    # via rss-manager
