@@ -40,7 +40,7 @@ venv = ".venv"
 
 # stubPath = [".venv"]
 strict = ["."]
-pythonVersion = "3.11"
+pythonVersion = "3.12"
 typeCheckingMode = "standard"
 strictListInference = true
 reportDuplicateImport = true

@@ -1,8 +1,8 @@
 from typing import Dict, List, Optional
-from sqlalchemy import create_engine
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
-import feedparser
 
+import feedparser
+from sqlalchemy import create_engine
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
 engine = create_engine(
     "sqlite:///subscriptions.db", connect_args={"check_same_thread": False}
@@ -43,7 +43,17 @@ def get_all_feeds():
         return feeds
 
 
-# print(get_all_feeds())
+def get_feed_by_id(feed_id: int):
+    with Session(engine) as session:
+        feed = session.query(Subscription).filter(Subscription.id == feed_id).first()
+        return feed
+
+
+def get_articles_for_feed(feed_id: int):
+    feed_db = get_feed_by_id(feed_id)
+    feed = Feed(feed_db.url)
+    articles = feed.articles()
+    return articles
 
 
 class Feed:
