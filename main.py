@@ -37,4 +37,5 @@ async def get_rss_feeds(request: Request):
 async def get_feed_articles(request: Request, feed_id: int):
     # feed = get_feed_by_id(feed_id)
     articles = get_articles_for_feed(feed_id)
-    return articles
+    articles_sorted = sorted(articles, key=lambda x: x['updated_parsed'],reverse=True)
+    return articles_sorted

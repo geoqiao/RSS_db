@@ -68,7 +68,7 @@ class Feed:
         """list all the articles of Feed"""
         articles = []
         for entry in self.feed_parse.entries:
-            article = {"title": entry.title, "link": entry.link}
+            article = {"title": entry.title, "link": entry.link,"updated_parsed":entry.updated_parsed}
             articles.append(article)
         return articles
 
