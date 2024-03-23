@@ -37,7 +37,9 @@ async def get_rss_feeds(request: Request):
 async def get_feed_articles(request: Request, feed_id: int):
     # feed = get_feed_by_id(feed_id)
     articles = get_articles_for_feed(feed_id)
-    articles_sorted = sorted(articles, key=lambda x: x['published_parsed'],reverse=True)
+    articles_sorted = sorted(
+        articles, key=lambda x: x["published_parsed"], reverse=True
+    )
     return template_dir.TemplateResponse(
         "articles_list.html", {"request": request, "articles_sorted": articles_sorted}
     )
