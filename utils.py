@@ -4,6 +4,8 @@ import feedparser
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
+from datetime import datetime
+
 engine = create_engine(
     "sqlite:///subscriptions.db", connect_args={"check_same_thread": False}
 )
@@ -21,6 +23,7 @@ class Subscription(Base):
     title: Mapped[str] = mapped_column(nullable=False)
     tag: Mapped[Optional[str]]
     link: Mapped[str] = mapped_column(nullable=False)
+    updated_at:Mapped[datetime] =mapped_column(nullable=False,default=datetime.now)
 
     def __repr__(self) -> str:
         return f"Feed(id={self.id!r}, url={self.url!r},title={self.title},tag={self.tag!r},link={self.link!r})"
@@ -68,7 +71,7 @@ class Feed:
         """list all the articles of Feed"""
         articles = []
         for entry in self.feed_parse.entries:
-            article = {"title": entry.title, "link": entry.link,"published_parsed":entry.published_parsed}
+            article = {"title": entry.title, "link": entry.link,"published_parsed":datetime(*entry.published_parsed[:6])}
             articles.append(article)
         return articles
 
