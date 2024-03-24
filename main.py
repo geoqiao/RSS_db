@@ -10,7 +10,7 @@ template_dir = Jinja2Templates(directory="templates")
 
 @app.get("/")
 async def index(request: Request):
-    return {"Hello": "RSS Manager"}
+    return template_dir.TemplateResponse("index.html",{"request": request})
 
 
 @app.get("/addfeed")
