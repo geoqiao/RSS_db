@@ -30,7 +30,7 @@ packages = ["src/rss_manager"]
 
 [tool.pyright]
 # include = ["src"]
-exclude = ["**/node_modules", "**/__pycache__"]
+exclude = ["**/node_modules", "**/__pycache__", ".venv"]
 # ignore = ["src/oldstuff"]
 
 defineConstant = { DEBUG = true }

@@ -13,3 +13,5 @@ wheels/
 ./typings
 # ruff cache
 .ruff_cache
+
+.vscode
