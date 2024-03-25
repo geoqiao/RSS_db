@@ -1,7 +1,13 @@
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
 
-from utils import Feed, add_feed_to_db, get_all_feeds, get_articles_for_feed,delete_feed_from_db
+from utils import (
+    Feed,
+    add_feed_to_db,
+    delete_feed_from_db,
+    get_all_feeds,
+    get_articles_for_feed,
+)
 
 app = FastAPI()
 

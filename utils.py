@@ -58,7 +58,7 @@ def get_articles_for_feed(feed_id: int):
     return articles
 
 
-def delete_feed_from_db(url:str):
+def delete_feed_from_db(url: str):
     with Session(engine) as session:
         feed = session.query(Subscription).filter(Subscription.url == url).first()
         session.delete(feed)
