@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
 
-from utils import Feed, add_feed_to_db, get_all_feeds, get_articles_for_feed
+from utils import Feed, add_feed_to_db, get_all_feeds, get_articles_for_feed,delete_feed_from_db
 
 app = FastAPI()
 
@@ -10,7 +10,7 @@ template_dir = Jinja2Templates(directory="templates")
 
 @app.get("/")
 async def index(request: Request):
-    return template_dir.TemplateResponse("index.html",{"request": request})
+    return template_dir.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/addfeed")
@@ -22,6 +22,17 @@ async def add_feed_page(request: Request):
 async def add_feed_submit(url: str = Form(...), tag: str = Form(...)):
     feed = Feed(url)
     add_feed_to_db(url=url, title=feed.title, tag=tag, link=feed.link)
+    return {"message": "add successfully"}
+
+
+@app.get("/deletefeed")
+async def delete_feed_page(request: Request):
+    return template_dir.TemplateResponse("delete_feed.html", {"request": request})
+
+
+@app.post("/deletefeed")
+async def delete_feed_submit(url: str = Form(...)):
+    delete_feed_from_db(url)
     return {"message": "add successfully"}
 
 
