@@ -68,10 +68,10 @@ def delete_feed_from_db(url: str):
 class Feed:
     def __init__(self, url: str, tag: str | None = None) -> None:
         self.feed_parse = feedparser.parse(url)
-        self.title = self.feed_parse.feed.title
-        self.link = self.feed_parse.feed.link
-        self.rss_feed = url
-        self.tag = tag
+        self.title: str = self.feed_parse.feed.title
+        self.link: str = self.feed_parse.feed.link
+        self.rss_feed: str = url
+        self.tag: str | None = tag
 
     def articles(self) -> List[Dict[str, str]]:
         """list all the articles of Feed"""
