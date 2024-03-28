@@ -32,9 +32,8 @@ Base.metadata.create_all(bind=engine)
 
 
 def add_feed_to_db(url: str, title: str, tag: str | None, link: str):
-    feed = Feed(url=url)
     with Session(engine) as session:
-        session.add(Subscription(url=url, title=feed.title, tag=tag, link=feed.link))
+        session.add(Subscription(url=url, title=title, tag=tag, link=link))
         session.commit()
         session.close()
 
