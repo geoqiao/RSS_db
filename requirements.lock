@@ -4,8 +4,10 @@
 # last locked with the following flags:
 #   pre: false
 #   features: []
-#   all-features: false
-#   with-sources: false
+#   all-features: true
+#   with-sources: true
+
+--index-url https://pypi.org/simple/
 
 -e file:.
 annotated-types==0.6.0
@@ -30,7 +32,7 @@ feedparser==6.0.11
 h11==0.14.0
     # via httpcore
     # via uvicorn
-httpcore==1.0.4
+httpcore==1.0.5
     # via httpx
 httptools==0.6.1
     # via uvicorn
@@ -47,9 +49,9 @@ jinja2==3.1.3
     # via rss-manager
 markupsafe==2.1.5
     # via jinja2
-orjson==3.9.15
+orjson==3.10.0
     # via fastapi
-pydantic==2.6.3
+pydantic==2.6.4
     # via fastapi
     # via pydantic-extra-types
     # via pydantic-settings
@@ -73,7 +75,7 @@ sgmllib3k==1.0.0
 sniffio==1.3.1
     # via anyio
     # via httpx
-sqlalchemy==2.0.28
+sqlalchemy==2.0.29
     # via rss-manager
 starlette==0.36.3
     # via fastapi
