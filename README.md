@@ -9,31 +9,31 @@
 
 通过点击`订阅列表`和`添加订阅`可以进入相应界面
 
-![Index](/pictures/index.png "Index")
+![Index](./images/index.png "Index")
 
 
 ## 添加订阅
 
 在此页面可以添加 RSS 订阅链接至一个 SQLite 数据库中。
 
-![Add_Feed](/pictures/add_feed.png "Add_Feed")
+![Add_Feed](./images/add_feed.png "Add_Feed")
 
 
 ## 订阅列表
 
 在此页面可以查看已添加到数据库中的所有订阅，包含标题、添加时间、Tag等字段
 
-![Feed_List](/pictures/feeds_list.png "Feed_List")
+![Feed_List](./images/feeds_list.png "Feed_List")
 
 通过点击不同的标题，可以查看对应RSS订阅中的所有文章列表。在文章列表点击文章标题可以跳转至原文网址。
 
-![Articles_List](/pictures/articles.png "Articles_List")
+![Articles_List](./images/articles.png "Articles_List")
 
 
 ## 删除订阅
 在此页面可以删除已添加到数据库中的订阅
 
-![Delete_Feed](/pictures/delete_feed.png "Delete_Feed")
+![Delete_Feed](./images/delete_feed.png "Delete_Feed")
 
 
 ## TODO
