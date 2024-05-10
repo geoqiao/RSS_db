@@ -1,9 +1,9 @@
 [project]
-name = "RSS_Manager"
+name = "rss-manager"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "Add your description here"
 authors = [
-    {name = "geoqiao", email = "realvincentqiao@gmail.com"},
+    { name = "geoqiao", email = "realvincentqiao@gmail.com" }
 ]
 dependencies = [
     "fastapi[all]>=0.110.1",
@@ -11,10 +11,10 @@ dependencies = [
     "feedparser>=6.0.11",
     "sqlalchemy>=2.0.29",
 ]
-requires-python = "==3.12.*"
 readme = "README.md"
-license = {text = "MIT"}
+requires-python = ">= 3.12"
 
-
-[tool.pdm]
-distribution = false
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
